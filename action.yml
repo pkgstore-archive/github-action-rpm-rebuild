@@ -1,0 +1,19 @@
+name: "RPM Rebuild"
+author: "Kitsune Solar <kitsune.solar@gmail.com>"
+description: ""
+branding:
+  icon: ""
+  color: ""
+inputs:
+  copr_token:
+    description: "Fedora COPR Token"
+    required: true
+  pkg_name:
+    description: "Package Name"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.copr_token }}
+    - ${{ inputs.pkg_name }}
